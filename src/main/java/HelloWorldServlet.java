@@ -21,9 +21,9 @@ public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) {
 
         try {
-
             res.setContentType("text/html");
             PrintWriter writer = res.getWriter();
+
             if(req.getParameter("konami") != null){
                 String code = req.getParameter("konami");
                 if(code.equals("codeup"));
