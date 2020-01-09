@@ -15,14 +15,28 @@
 </head>
 <body>
 <h1>Order Summary</h1>
-<c:set var="item" value="${param.item}"/>
-<c:set var="amount" value="${param.amount}"/>
+<%--<c:set var="item" value="${param.item}"/>--%>
+<%--<c:set var="amount" value="${param.amount}"/>--%>
 
-<jsp:useBean id="items" class="java.util.HashMap" scope="request"/>
-<c:set target="${items}" property="${item}" value="${amount}"/>
+<%--<jsp:useBean id="items" class="java.util.HashMap" scope="request"/>--%>
+<%--<c:set target="${items}" property="${item}" value="${amount}"/>--%>
 
-<c:forEach var="entry" items="${items}">
-   Item:  ${entry.key}, Amount: ${entry.value}
+<%--<c:forEach var="entry" items="${items}">--%>
+<%--   Item:  ${entry.key}, Amount: ${entry.value}--%>
+<%--</c:forEach>--%>
+
+<%
+    HashMap<String, String> items = new HashMap<String, String>(){{
+        put(request.getParameter("item"), request.getParameter("amount"));
+    }};
+
+    request.setAttribute("listOfItems", items);
+%>
+
+<c:set target="${listOfItems}" property="${param.item}" value="${param.amount}"/>
+
+<c:forEach var="entry" items="${listOfItems}">
+   Item:  ${entry.key} , Amount: ${entry.value}
 </c:forEach>
 
 
