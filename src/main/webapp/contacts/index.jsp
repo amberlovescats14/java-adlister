@@ -18,16 +18,28 @@
 
 <a href="/contact/create">Add Contact</a>
 
-
+<div class="row">
 <c:forEach var="item" items="${allContacts}">
+
     <div class="card blue-grey darken-1 col s6">
         <div class="card-content white-text">
             <span class="card-title">
                     ${item.firstName} ${item.lastName}
             </span>
                 ${item.phoneNumber.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3")}
+            <div class="row">
+                <a href="/contact/update?id=${item.id}" class="btn">
+                    Update</a>
+                <form action="/contact/delete" method="post">
+                    <input type="text" name="id" value="${item.id}" hidden>
+                    <input type="submit" class="btn" value="delete">
+                </form>
+            </div>
+
+
         </div>
     </div>
 </c:forEach>
+</div>
 </body>
 </html>
