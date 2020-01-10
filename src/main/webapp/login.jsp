@@ -15,7 +15,6 @@
 </head>
 <body>
 <nav>
-<%--    <%@ include file="partials/nav.jsp" %>--%>
     <c:import url="partials/nav.jsp"/>
 </nav>
 <header>

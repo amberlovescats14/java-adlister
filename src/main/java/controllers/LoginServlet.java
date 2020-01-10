@@ -42,11 +42,4 @@ public class LoginServlet extends HttpServlet {
     }
 
 
-    private void setTimeOut(int pause){
-        try {
-            Thread.sleep(pause);
-        } catch(InterruptedException ex) {
-            System.out.printf("ERROR: %s\n", ex);
-        }
-    }
 }
