@@ -19,11 +19,20 @@
     <c:import url="partials/nav.jsp"/>
 </nav>
 <header>
-<%--    <%@ include file="partials/banner.jsp"%>--%>
     <c:import url="partials/banner.jsp"/>
 </header>
+
+<c:if test="${alert}">
+    <div class="row">
+        <div class="col s12 red text-white">
+            Login Credentials Incorrect, Please Try Again
+        </div>
+    </div>
+</c:if>
+
+
 <div class="row">
-<form method="post" action="/login.jsp" class="col s6">
+<form method="post" action="/login" class="col s6">
     <label for="username">
         Username:
         <input type="text" name="username" id="username">
@@ -36,11 +45,11 @@
 </form>
 </div>
 
-<c:if test="${param.username.toLowerCase() eq 'admin'}">
-    <c:if test="${param.password.toLowerCase() eq 'password'}">
-        <c:redirect url="/profile.jsp"/>
-    </c:if>
-</c:if>
+<%--<c:if test="${param.username.toLowerCase() eq 'admin'}">--%>
+<%--    <c:if test="${param.password.toLowerCase() eq 'password'}">--%>
+<%--        <c:redirect url="/profile.jsp"/>--%>
+<%--    </c:if>--%>
+<%--</c:if>--%>
 
 
 

@@ -20,7 +20,7 @@
     <%@ include file="partials/banner.jsp"%>
 </header>
 <h1>
-    Welcome Admin
+    Welcome ${user}
 </h1>
 </body>
 </html>
