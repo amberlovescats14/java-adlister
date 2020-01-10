@@ -1,9 +1,8 @@
-package controllers;
+package controllers.contacts;
 
-import dao.Ads;
-import dao.AdsDao;
+import dao.Contacts;
 import dao.DaoFactory;
-import models.AdsBean;
+import models.Contact;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,20 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "all-ads", urlPatterns = "/ads")
-public class ShowAdsServlet extends HttpServlet {
+@WebServlet(name = "Contact", urlPatterns = "/contact")
+public class ShowAllServlet extends HttpServlet {
 
     protected void doGet(
             HttpServletRequest req,
             HttpServletResponse res
     ) {
         try {
-            AdsDao adsDao = DaoFactory.getAdsDao();
+            Contacts contactsDao = DaoFactory.getContactsDao();
 
-            List<AdsBean> allAds = adsDao.readAllAds();
+            List<Contact> allContacts = contactsDao.getContacts();
+            req.setAttribute("allContacts", allContacts);
+            req.getRequestDispatcher("/contacts/index.jsp").forward(req,res);
 
-            req.setAttribute("allAds", allAds);
-            req.getRequestDispatcher("/ads/index.jsp").forward(req,res);
         } catch(IOException | ServletException ex) {
             System.out.printf("ERROR: %s\n", ex);
         }

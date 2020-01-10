@@ -10,5 +10,22 @@ public class DaoFactory {
         return ahoyDao;
     }
 
+    // Contacts
+    private static Contacts contactsDao;
+
+    public static Contacts getContactsDao() {
+        if(contactsDao == null) contactsDao = new ContactListDao() ;
+
+        return contactsDao;
+    }
+
+    // Ads
+
+    private static AdsDao adsDao;
+
+    public static AdsDao getAdsDao() {
+        if(ahoyDao == null) adsDao = new Ads();
+        return adsDao;
+    }
 
 }

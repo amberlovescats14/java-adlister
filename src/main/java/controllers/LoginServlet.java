@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 
 
                   req.setAttribute("alert", true);
-                  req.getRequestDispatcher("/login.jsp").forward(req,res);
+//            req.getRequestDispatcher("/login.jsp").forward(req,res);
 
         } catch(IOException | ServletException ex) {
             System.out.printf("ERROR: %s\n", ex);
